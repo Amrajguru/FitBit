@@ -21,12 +21,12 @@ class InputActivity : AppCompatActivity() {
         sleepTypeTextView = findViewById(R.id.SleepAmountInput)
         sleepHrsTextView = findViewById(R.id.SleepTypeInput)
 
-        var sleeptypetext: String = sleepTypeTextView.text.toString()
-        var sleephrsnum: String = sleepHrsTextView.text.toString()
 
         var itembutton = findViewById<Button>(R.id.itembutton)
 
-        itembutton.setOnClickListener() {
+        itembutton.setOnClickListener {
+            var sleeptypetext: String = sleepTypeTextView.text.toString()
+            var sleephrsnum: String = sleepHrsTextView.text.toString()
             lifecycleScope.launch(Dispatchers.IO) {
                 (application as InputApplication).db.inputDao().insert(
                     InputEntity(
