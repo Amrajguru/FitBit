@@ -1,6 +1,8 @@
 package com.example.fitbit
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 
 import androidx.appcompat.app.AppCompatActivity
@@ -16,20 +18,25 @@ class InputActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_item)
 
-
         sleepTypeTextView = findViewById(R.id.SleepAmountInput)
         sleepHrsTextView = findViewById(R.id.SleepTypeInput)
 
         var sleeptypetext: String = sleepTypeTextView.text.toString()
-        var sleephrsnum: String = sleepTypeTextView.text.toString()
+        var sleephrsnum: String = sleepHrsTextView.text.toString()
 
+        var itembutton = findViewById<Button>(R.id.itembutton)
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            (application as InputApplication).db.inputDao().insert(
-                InputEntity(
-                    sleepType = sleeptypetext,
-                    sleepHours = sleephrsnum,
+        itembutton.setOnClickListener() {
+            lifecycleScope.launch(Dispatchers.IO) {
+                (application as InputApplication).db.inputDao().insert(
+                    InputEntity(
+                        sleepType = sleeptypetext,
+                        sleepHours = sleephrsnum
+                    )
                 )
-            )}
+            }
+            val intent = Intent(this, MainActivity::class.java)
+            this.startActivity(intent)
+        }
     }
 }

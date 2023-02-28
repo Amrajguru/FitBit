@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         val inputAdapter = InputAdapter(inputs)
         inputsRecyclerView.adapter = inputAdapter
 
+        inputsRecyclerView.layoutManager = LinearLayoutManager(this).also {
+            val dividerItemDecoration = DividerItemDecoration(this, it.orientation)
+            inputsRecyclerView.addItemDecoration(dividerItemDecoration)
+        }
+
         lifecycleScope.launch {
             (application as InputApplication).db.inputDao().getAll().collect { databaseList ->
                 databaseList.map { entity ->
@@ -40,11 +45,6 @@ class MainActivity : AppCompatActivity() {
                     inputAdapter.notifyDataSetChanged()
                 }
             }
-        }
-
-        inputsRecyclerView.layoutManager = LinearLayoutManager(this).also {
-            val dividerItemDecoration = DividerItemDecoration(this, it.orientation)
-            inputsRecyclerView.addItemDecoration(dividerItemDecoration)
         }
 
         var inputbutton = findViewById<Button>(R.id.inputbutton)

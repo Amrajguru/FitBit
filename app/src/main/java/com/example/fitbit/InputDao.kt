@@ -12,6 +12,9 @@ interface InputDao {
     @Insert
     fun insert(inputs: InputEntity)
 
+    @Insert
+    fun insertAll(articles: List<InputEntity>)
+
     @Query("DELETE FROM input_table")
     fun deleteAll()
 }
