@@ -25,7 +25,7 @@ class InputAdapter(private val inputs: List<DisplayInput>) : RecyclerView.Adapte
 
         fun bind(input: DisplayInput) {
             sleepTypeTextView.text = input.sleepType
-            sleepHrsTextView.text = input.sleepHours.toString()
+            sleepHrsTextView.text = input.sleepHours
         }
     }
 
