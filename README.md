@@ -30,7 +30,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-![Fitbit](https://user-images.githubusercontent.com/99455992/222555862-94e7af2c-6fd0-45b0-984c-be4627ecb3aa.gif)
+![Fitbit](https://user-images.githubusercontent.com/99455992/222556278-083763d1-c1ab-4fc0-bbfe-9d384618eebe.gif)
+
 
 
 GIF created with ...  
